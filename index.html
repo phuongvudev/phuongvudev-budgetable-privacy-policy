@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
   <style>
     :root {
       --bg: #f6f4ec;
@@ -318,148 +320,188 @@
         max-width: 100%;
       }
     }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(246, 244, 236, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+
+    .nav-wrapper {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Fraunces", serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4d5e61;
+      font-size: 0.9rem;
+      transition: color 140ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="background-orb orb-a" aria-hidden="true"></div>
   <div class="background-orb orb-b" aria-hidden="true"></div>
 
+  <nav>
+    <div class="nav-wrapper">
+      <a class="logo" href="landing.html">Budgetable</a>
+      <ul class="nav-links">
+        <li><a href="landing.html" data-i18n="home"></a></li>
+        <li><a href="index.html" class="active" data-i18n="privacyTerms"></a></li>
+        <li><a href="support.html" data-i18n="support"></a></li>
+        <li><a href="how-to-use.html" data-i18n="guide"></a></li>
+      </ul>
+    </div>
+  </nav>
+
   <main class="page">
     <header class="hero">
-      <span class="eyebrow">Budgetable Policies</span>
-      <h1>Privacy Policy and Terms of Service</h1>
-      <p>
-        Budgetable is built for local-first personal finance. The sections below summarize
-        how data is handled and the terms that apply when using the app.
-      </p>
+      <span class="eyebrow" data-i18n="policiesTitle" style="display:inline-flex;"></span>
+      <h1 data-i18n="policiesTitle"></h1>
+      <p data-i18n="policiesDesc"></p>
       <div class="hero-meta">
-        <span class="pill">Last updated: January 2026</span>
-        <span class="pill">Applies to Budgetable app</span>
+        <span class="pill" data-i18n="lastUpdated"></span>
+        <span class="pill" data-i18n="appliesto"></span>
       </div>
     </header>
 
     <nav class="jump-links" aria-label="Policy sections">
-      <a href="#privacy-policy">Privacy Policy</a>
-      <a href="#terms-of-service">Terms of Service</a>
-      <a href="#support">Support Contact</a>
+      <a href="#privacy-policy" data-i18n="privacyPolicyTitle"></a>
+      <a href="#terms-of-service" data-i18n="termsOfService"></a>
+      <a href="#support" data-i18n="supportContact"></a>
     </nav>
 
     <section class="grid">
       <article class="panel" id="privacy-policy">
-        <h2>Privacy Policy</h2>
-        <p class="panel-intro">
-          Your privacy matters. Budgetable focuses on transparency and user control over personal finance data.
-        </p>
+        <h2 data-i18n="privacyPolicyTitle"></h2>
+        <p class="panel-intro" data-i18n="privacyIntro"></p>
 
         <section class="section">
-          <h3>1. Data Collection</h3>
-          <ul>
-            <li>Budget, account, category, and transaction records you create in the app.</li>
-            <li>Preferences such as currency, language, and enabled features.</li>
-            <li>Optional AI provider configuration you decide to store.</li>
-          </ul>
+          <h3 data-i18n="dataCollection"></h3>
+          <ul id="dataCollection-list"></ul>
         </section>
 
         <section class="section">
-          <h3>2. Data Storage</h3>
-          <ul>
-            <li>Core finance data is stored on your device as local app data.</li>
-            <li>You control backup and restore through your device or platform settings.</li>
-            <li>Data remains local unless you explicitly trigger an external integration.</li>
-          </ul>
+          <h3 data-i18n="dataStorage"></h3>
+          <ul id="dataStorage-list"></ul>
         </section>
 
         <section class="section">
-          <h3>3. Data Sharing</h3>
-          <p>
-            Budgetable does not sell personal data. Data is shared only when required by features
-            you choose to use, such as optional third-party AI integrations.
-          </p>
+          <h3 data-i18n="dataSharing"></h3>
+          <p data-i18n="dataSharingText"></p>
         </section>
 
         <section class="section">
-          <h3>4. AI Features</h3>
-          <p>
-            If AI is enabled, selected content may be transmitted to your chosen provider for response generation.
-            Provider handling is governed by that provider's own terms and privacy policy.
-          </p>
+          <h3 data-i18n="aiFeatures"></h3>
+          <p data-i18n="aiFeaturesText"></p>
         </section>
 
         <section class="section">
-          <h3>5. User Rights</h3>
-          <ul>
-            <li>You may modify or delete records in the app at any time.</li>
-            <li>You may disable AI providers and remove saved provider settings.</li>
-            <li>You may uninstall the app to remove local data from your device.</li>
-          </ul>
+          <h3 data-i18n="userRights"></h3>
+          <ul id="userRights-list"></ul>
         </section>
 
-        <div class="notice">
-          Local-first commitment: your financial records are primarily stored on your own device.
-        </div>
+        <div class="notice" data-i18n="localCommitment"></div>
       </article>
 
       <article class="panel" id="terms-of-service">
-        <h2>Terms of Service</h2>
-        <p class="panel-intro">
-          Using Budgetable means you accept these terms and any updates posted on this page.
-        </p>
+        <h2 data-i18n="termsOfService"></h2>
+        <p class="panel-intro" data-i18n="termsIntro"></p>
 
         <section class="section">
-          <h3>1. Acceptance of Terms</h3>
-          <p>
-            Continued use of Budgetable indicates your acceptance of this policy page and future revisions.
-          </p>
+          <h3 data-i18n="acceptance"></h3>
+          <p data-i18n="acceptanceText"></p>
         </section>
 
         <section class="section">
-          <h3>2. License to Use</h3>
-          <ul>
-            <li>You are granted a limited, non-exclusive license for personal use.</li>
-            <li>You must not misuse, resell, or exploit the service in violation of applicable law.</li>
-          </ul>
+          <h3 data-i18n="license"></h3>
+          <ul id="license-list"></ul>
         </section>
 
         <section class="section">
-          <h3>3. Disclaimer</h3>
-          <p>
-            Budgetable is provided "as is" for personal finance organization.
-            It does not provide legal, tax, accounting, or investment advice.
-          </p>
+          <h3 data-i18n="disclaimer"></h3>
+          <p data-i18n="disclaimerText"></p>
         </section>
 
         <section class="section">
-          <h3>4. Limitations</h3>
-          <p>
-            To the fullest extent permitted by law, Budgetable is not liable for indirect, incidental,
-            or consequential damages from app use.
-          </p>
+          <h3 data-i18n="limitations"></h3>
+          <p data-i18n="limitationsText"></p>
         </section>
 
         <section class="section">
-          <h3>5. Modifications</h3>
-          <p>
-            We may revise these terms as the app evolves. The latest version published here is the effective version.
-          </p>
+          <h3 data-i18n="modifications"></h3>
+          <p data-i18n="modificationsText"></p>
         </section>
 
-        <div class="notice">
-          Please review this page periodically to stay informed of policy updates.
-        </div>
+        <div class="notice" data-i18n="reviewPeriodically"></div>
       </article>
     </section>
 
     <section class="support" id="support">
-      <h2>Support Contact</h2>
-      <p>
-        Need help, found a policy issue, or want to request a correction? Reach out and we will assist.
-      </p>
+      <h2 data-i18n="supportContact"></h2>
+      <p data-i18n="supportContactDesc"></p>
       <a class="support-link" href="mailto:openmobilekit@gmail.com">openmobilekit@gmail.com</a>
     </section>
 
     <footer>
-      Budgetable Policy Page
+      <p data-i18n="copyright"></p>
     </footer>
   </main>
+
+  <script>
+    // Populate list items after i18n is initialized
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const lists = {
+          'dataCollection-list': 'dataCollectionItems',
+          'dataStorage-list': 'dataStorageItems',
+          'userRights-list': 'userRightsItems',
+          'license-list': 'licenseItems'
+        };
+
+        for (const [id, key] of Object.entries(lists)) {
+          const list = document.getElementById(id);
+          const items = window.i18n.getArray(key);
+          list.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+        }
+      }, 100);
+    });
+  </script>
 </body>
 </html>
