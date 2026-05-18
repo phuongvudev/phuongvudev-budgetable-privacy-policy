@@ -430,6 +430,10 @@
         <section class="section">
           <h3 data-i18n="aiFeatures"></h3>
           <p data-i18n="aiFeaturesText"></p>
+          <p><strong data-i18n="aiSharedDataTitle"></strong> <span data-i18n="aiSharedDataText"></span></p>
+          <p><strong data-i18n="aiProvidersTitle"></strong></p>
+          <ul id="aiProviders-list"></ul>
+          <p data-i18n="aiConsentNote"></p>
         </section>
 
         <section class="section">
@@ -492,7 +496,8 @@
           'dataCollection-list': 'dataCollectionItems',
           'dataStorage-list': 'dataStorageItems',
           'userRights-list': 'userRightsItems',
-          'license-list': 'licenseItems'
+          'license-list': 'licenseItems',
+          'aiProviders-list': 'aiProvidersList'
         };
 
         for (const [id, key] of Object.entries(lists)) {
